@@ -1,0 +1,122 @@
+/*
+Theme Name: VCBA Enterprise Theme
+Description: Custom WordPress theme for Vietnam-Cambodia Business Association (VCBA) with modern, professional design and multi-language support.
+Author: VCBA Development Team
+Version: 1.0.0
+License: GPL v2 or later
+Text Domain: vcba-theme
+Domain Path: /languages/
+Tags: corporate, business, responsive, multi-language, modern, professional
+
+This theme is designed specifically for VCBA (Vietnam-Cambodia Business Association).
+Features include:
+- Modern responsive design
+- Multi-language support (Vietnamese, English, Khmer)
+- News management system
+- Business connection features
+- Member management
+- Professional animations and effects
+*/
+
+/* Import the main stylesheet */
+@import url("../../styles.css");
+
+/* WordPress specific overrides */
+.wp-block-group {
+    margin-bottom: 0;
+}
+
+.wp-block-post-title {
+    margin-bottom: var(--space-4);
+}
+
+.wp-block-post-content {
+    line-height: 1.6;
+}
+
+/* WordPress editor styles */
+.block-editor-page {
+    font-family: var(--font-body);
+}
+
+/* WordPress navigation menu styling */
+.wp-block-navigation-item__content {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* WordPress comments styling */
+.wp-block-comments {
+    margin-top: var(--space-8);
+}
+
+.wp-block-comment-template {
+    margin-bottom: var(--space-4);
+}
+
+/* WordPress widgets styling */
+.widget {
+    margin-bottom: var(--space-6);
+}
+
+.widget-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    color: var(--primary-blue-600);
+}
+
+/* WordPress pagination */
+.page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 2px;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius);
+    color: var(--neutral-600);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.page-numbers:hover,
+.page-numbers.current {
+    background: var(--primary-blue-600);
+    color: white;
+    border-color: var(--primary-blue-600);
+}
+
+/* WordPress search form */
+.wp-block-search {
+    margin-bottom: var(--space-4);
+}
+
+.wp-block-search__input {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+.wp-block-search__button {
+    background: var(--primary-blue-600);
+    color: white;
+    border: none;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-left: var(--space-2);
+}
+
+/* WordPress admin bar compatibility */
+.admin-bar #header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar #header {
+        top: 46px;
+    }
+} 
