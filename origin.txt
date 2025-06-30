@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<title>Trang chủ - VCBA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div id="wrapper">
+	<header id="header">
+		<div class="header-wrapper">
+			<div id="top-bar" class="header-top">
+				<div class="flex-row container">
+					<div class="flex-col hide-for-medium flex-left">
+						<ul class="nav nav-left">
+							<li>HIỆP HỘI DOANH NGHIỆP VIỆT NAM-CAMPUCHIA</li>
+						</ul>
+					</div>
+					<div class="flex-col hide-for-medium flex-right">
+						<ul class="nav top-bar-nav nav-right">
+							<li><a href="https://vcba.biz/">VI</a></li>
+							<li><a href="https://vcba.biz/en/trang-chu-english-2/">EN</a></li>
+							<li><a href="https://vcba.biz/km/trang-chu-%e1%9e%97%e1%9e%b6%e1%9e%9f%e1%9e%b6%e1%9e%81%e1%9f%92%e1%9e%98%e1%9f%82%e1%9e%9a-2/">KH</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="masthead" class="header-main">
+				<div class="header-inner">
+					<div id="logo" class="flex-col logo">
+						<a href="https://vcba.biz/" title="VCBA" rel="home">
+							<img src="https://vcba.biz/wp-content/uploads/2024/03/logo-vcba.jpg" alt="VCBA"/>
+						</a>
+					</div>
+					<div class="flex-col hide-for-medium flex-left flex-grow">
+						<ul class="header-nav">
+							<li>
+								<div>
+									<div>
+										<div>
+											<div>
+												<img src="https://vcba.biz/wp-content/uploads/2024/02/call-ring.png" alt=""/>
+											</div>
+											<div>
+												<p>Hotline</p>
+												<h3><a href="tel:+855882266997">+855 88 226 6997</a></h3>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="wide-nav" class="header-bottom wide-nav">
+				<div class="flex-row container">
+					<div class="flex-col hide-for-medium flex-left">
+						<ul class="nav header-nav">
+							<li><a href="https:/">TRANG CHỦ</a></li>
+							<li><a href="#">GIỚI THIỆU</a>
+								<ul>
+									<li><a href="https://vcba.biz/quy-che-hoat-dong/">Quy chế hoạt động Hiệp hội</a></li>
+									<li><a href="https://vcba.biz/muc-tieu-hoat-dong-hiep-hoi/">Tôn chỉ mục đích</a></li>
+									<li><a href="https://vcba.biz/danh-sach-thanh-vien-ban-chap-hanh/">Ban chấp hành</a></li>
+									<li><a href="https://vcba.biz/co-cau-to-chuc-hiep-hoi/">Cơ cấu tổ chức Hiệp hội</a></li>
+								</ul>
+							</li>
+							<li><a href="#">HỘI VIÊN</a>
+								<ul>
+									<li><a href="https://vcba.biz/danh-sach-hoi-vien-hiep-hoi-2/">Danh sách Hội viên hiệp hội</a></li>
+									<li><a href="https://vcba.biz/don-dang-ky-gia-nhap-hiep-hoi/">Đơn đăng ký gia nhập Hiệp hội</a></li>
+								</ul>
+							</li>
+							<li><a href="/">TIN TỨC và SỰ KIỆN</a>
+								<ul>
+									<li><a href="https://vcba.biz/tin-tuc/">Hoạt động sự kiện</a></li>
+									<li><a href="https://vcba.biz/hoat-dong-noi-bo/">Hoạt động nội bộ</a></li>
+								</ul>
+							</li>
+							<li><a href="https://vcba.biz/giao-thuong/">KẾT NỐI GIAO THƯƠNG</a>
+								<ul>
+									<li><a href="https://vcba.biz/co-hoi-dau-tu/">Cơ hội đầu tư</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<div id="content">
+			<div class="slider-wrapper">
+				<div class="slider">
+					<div class="img">
+						<img src="https://vcba.biz/wp-content/uploads/2024/03/sl5.jpg" alt=""/>
+					</div>
+					<div class="img">
+						<img src="https://vcba.biz/wp-content/uploads/2024/03/sl1.jpg" alt=""/>
+					</div>
+					<div class="img">
+						<img src="https://vcba.biz/wp-content/uploads/2024/03/sl3.jpg" alt=""/>
+					</div>
+				</div>
+			</div>
+
+			<section class="section">
+				<div class="section-content">
+					<div class="row">
+						<div class="col">
+							<div class="post-item">
+								<div class="box">
+									<div class="box-image">
+										<img src="https://vcba.biz/wp-content/uploads/2024/03/sl5-300x157.jpg" alt=""/>
+									</div>
+									<div class="box-text">
+										<h5><a href="https://vcba.biz/gioi-thieu-vcba/">Giới thiệu VCBA</a></h5>
+										<p>VCBA là tổ chức phi lợi nhuận được thành lập trên cơ sở kế thừa Câu lạc bộ Doanh nghiệp Việt Nam tại Campuchia(VBCC), có sự tham gia của các doanh nghiệp lớn trong nhiều lĩnh vực kinh kế và hoạt động lâu năm tại Vương Quốc Campuchia.</p>
+										<a href="https://vcba.biz/gioi-thieu-vcba/">Xem thêm</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section class="section">
+				<div class="section-content">
+					<div class="row">
+						<div class="col">
+							<h2>TIN TỨC VÀ SỰ KIỆN</h2>
+							<p>Dưới đây là một số vài bài viết tin tức - hướng dẫn của hiệp hội VCBA</p>
+							
+							<div class="row">
+								<div class="col post-item">
+									<div class="box">
+										<div class="box-image">
+											<img src="https://vcba.biz/wp-content/uploads/2024/03/ho-p-ta-c-20231212154505-1.jpg" alt=""/>
+										</div>
+										<div class="box-text">
+											<h5><a href="https://vcba.biz/viet-nam-campuchia-thuc-day-hop-tac-cong-nghiep-va-thuong-mai/">Việt Nam - Campuchia thúc đẩy hợp tác công nghiệp và thương mại</a></h5>
+											<p>Việt Nam và Campuchia đã thống nhất một số biện pháp nhằm thúc...</p>
+										</div>
+									</div>
+								</div>
+								<div class="col post-item">
+									<div class="box">
+										<div class="box-text">
+											<h5><a href="https://vcba.biz/bieu-thue-nhap-khau-uu-dai-dac-biet-viet-nam-campuchia-giai-doan-2023-2024/">Biểu thuế nhập khẩu ưu đãi đặc biệt Việt Nam - Campuchia giai đoạn 2023 - 2024</a></h5>
+											<p>BNEWS Nghị định này quy định thuế suất thuế nhập khẩu ưu đãi đặc...</p>
+										</div>
+									</div>
+								</div>
+								<div class="col post-item">
+									<div class="box">
+										<div class="box-image">
+											<img src="https://vcba.biz/wp-content/uploads/2024/03/viet-campuchia-090324-1.jpg" alt=""/>
+										</div>
+										<div class="box-text">
+											<h5><a href="https://vcba.biz/truyen-thong-campuchia-danh-gia-cao-tiem-nang-thuc-day-dau-tu-voi-viet-nam/">Truyền thông Campuchia đánh giá cao tiềm năng thúc đẩy đầu tư với Việt Nam</a></h5>
+											<p>Trong hai ngày 7 và 8/3, các cơ quan báo chí truyền thông...</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<a href="/tin-tuc/">Xem thêm bài viết</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section class="section">
+				<div class="section-content">
+					<div class="row">
+						<div class="col">
+							<h2>KẾT NỐI GIAO THƯƠNG</h2>
+							
+							<div class="row">
+								<div class="col post-item">
+									<div class="box">
+										<div class="box-image">
+											<img src="https://vcba.biz/wp-content/uploads/2024/03/ttxvn-1601-vn-campuchia-1-8424.jpg-300x198.webp" alt=""/>
+										</div>
+										<div class="box-text">
+											<h5><a href="https://vcba.biz/nhieu-du-dia-cho-doanh-nghiep-viet-nam-dau-tu-kinh-doanh-tai-campuchia/">Nhiều dư địa cho doanh nghiệp Việt Nam đầu tư kinh doanh tại Campuchia</a></h5>
+											<p>Chiều 16/1, Đại sứ quán Việt Nam tại Campuchia đã tổ chức "Hội nghị gặp...</p>
+										</div>
+									</div>
+								</div>
+								<div class="col post-item">
+									<div class="box">
+										<div class="box-image">
+											<img src="https://vcba.biz/wp-content/uploads/2024/03/Metfone-300x189.png" alt=""/>
+										</div>
+										<div class="box-text">
+											<h5><a href="https://vcba.biz/metfone-la-thuong-hieu-so-1-nha-mang-vien-thong-lon-nhat-campuchia/">Metfone-nhà mạng viễn thông lớn nhất Campuchia</a></h5>
+											<p>Viettel Cambodia là Công ty Viễn thông - Công nghệ thông tin tại Campuchia với...</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<footer id="footer">
+		<section class="section">
+			<div class="section-content">
+				<div class="row">
+					<div class="col">
+						<div class="icon-box">
+							<div class="icon-box-img">
+								<img src="https://vcba.biz/wp-content/uploads/2024/03/logo-vcba-removebg-preview-300x300.png" alt=""/>
+							</div>
+							<div class="icon-box-text">
+								<p>VCBA là tổ chức phi lợi nhuận được thành lập trên cơ sở kế thừa Câu lạc bộ Doanh nghiệp Việt Nam tại Campuchia(VBCC), có sự tham gia của các doanh nghiệp lớn trong nhiều lĩnh vực kinh kế và hoạt động lâu năm tại Vương Quốc Campuchia.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<h4>Thông tin liên hệ</h4>
+						<ul>
+							<li>Địa chỉ: Số 255 (Suncity) Tầng 1, đường 51 góc đường 370, phường Buong Keng Koan, quận Buong Keng Koan, thủ đô Phnompenh.</li>
+							<li>Email: vcba.cam@gmail.com</li>
+							<li>Website: <a href="https:">https:</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<div class="social-icons">
+							<a href="https://facebook.com" target="_blank">Facebook</a>
+							<a href="https://youtube.cọm" target="_blank">YouTube</a>
+						</div>
+						<a href="tel:+855882266997">Hotline: +855 88 226 6997</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
+</div>
+</body>
+</html>
