@@ -22,7 +22,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
 	<!-- Ultra Modern CSS -->
-	<link rel="stylesheet" href="news-detail.css">
+	<link rel="stylesheet" href="styles.css">
 	
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="https://vcba.biz/wp-content/uploads/2024/03/logo-vcba.jpg">
@@ -200,15 +200,17 @@
 						</header>
 
 						<!-- Featured Image -->
-						<div class="news-detail-image">
+						<div class="news-featured-image">
 							<img src="https://vcba.biz/wp-content/uploads/2024/03/sl5.jpg" alt="Hội nghị thường niên VCBA 2024"/>
 						</div>
 
 						<!-- News Content -->
 						<div class="news-detail-content">
-							<div class="news-detail-text">
+							<div class="news-excerpt">
 								<p class="lead-text">Hội nghị thường niên VCBA 2024 đã diễn ra thành công với sự tham gia của hơn 200 đại biểu đại diện cho các doanh nghiệp Việt Nam tại Campuchia, cùng các đối tác và khách mời từ hai nước.</p>
+							</div>
 
+							<div class="news-body">
 								<h2>Thành công vượt mong đợi</h2>
 								<p>Hội nghị thường niên VCBA 2024 được tổ chức tại khách sạn 5 sao tại Phnom Penh với chủ đề "Kết nối - Hợp tác - Phát triển bền vững". Sự kiện này đánh dấu một năm hoạt động hiệu quả của hiệp hội với nhiều thành tựu đáng kể.</p>
 
@@ -221,7 +223,7 @@
 								</ul>
 
 								<h2>Phát biểu của lãnh đạo</h2>
-								<blockquote>
+								<blockquote class="news-quote">
 									<p>"VCBA đã và đang đóng vai trò quan trọng trong việc kết nối cộng đồng doanh nghiệp Việt Nam tại Campuchia. Chúng tôi cam kết tiếp tục hỗ trợ các thành viên phát triển kinh doanh bền vững."</p>
 									<cite>- Ông Nguyễn Văn Hùng, Chủ tịch VCBA</cite>
 								</blockquote>
@@ -246,8 +248,8 @@
 									<li>Tổ chức các chương trình đào tạo kỹ năng kinh doanh</li>
 								</ol>
 
-								<h3>Hình ảnh sự kiện</h3>
 								<div class="news-gallery">
+									<h3>Hình ảnh sự kiện</h3>
 									<div class="gallery-grid">
 										<div class="gallery-item">
 											<img src="https://vcba.biz/wp-content/uploads/2024/03/sl1.jpg" alt="Hội nghị VCBA 2024 - Ảnh 1"/>
@@ -261,8 +263,10 @@
 									</div>
 								</div>
 
-								<h2>Kết luận</h2>
-								<p>Hội nghị thường niên VCBA 2024 đã khép lại thành công, mở ra một năm mới với nhiều cơ hội và thách thức. VCBA cam kết tiếp tục đồng hành cùng cộng đồng doanh nghiệp Việt Nam tại Campuchia trên con đường phát triển bền vững.</p>
+								<div class="news-conclusion">
+									<h2>Kết luận</h2>
+									<p>Hội nghị thường niên VCBA 2024 đã khép lại thành công, mở ra một năm mới với nhiều cơ hội và thách thức. VCBA cam kết tiếp tục đồng hành cùng cộng đồng doanh nghiệp Việt Nam tại Campuchia trên con đường phát triển bền vững.</p>
+								</div>
 							</div>
 						</div>
 
@@ -299,73 +303,49 @@
 
 					<!-- Related News -->
 					<section class="related-news-section">
-						<div class="related-news-header">
-							<h2>Tin tức liên quan</h2>
-							<p>Khám phá thêm các tin tức và hoạt động khác của VCBA</p>
-						</div>
-						<div class="related-news-grid">
-							<article class="related-news-card">
-								<div class="related-news-image">
-									<img src="https://vcba.biz/wp-content/uploads/2024/03/sl1.jpg" alt="Tin tức liên quan 1"/>
+						<h2 class="related-news-title">Tin tức liên quan</h2>
+						<div class="news-grid">
+							<article class="news-card standard compact">
+								<div class="news-image">
+									<img src="https://vcba.biz/wp-content/uploads/2024/03/sl1.jpg" alt="Gala dinner kết nối doanh nghiệp"/>
+									<div class="news-category">Networking</div>
 								</div>
-								<div class="related-news-content">
-									<div class="related-news-category">Hoạt động sự kiện</div>
-									<h3 class="related-news-title"><a href="#">Gala dinner kết nối doanh nghiệp Việt-Campuchia</a></h3>
-									<p class="related-news-excerpt">Chương trình gala dinner thường niên tạo cơ hội kết nối và giao lưu giữa các doanh nghiệp hai nước...</p>
-									<div class="related-news-meta">
-										<div class="related-news-date">
-											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-												<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-												<line x1="16" y1="2" x2="16" y2="6"></line>
-												<line x1="8" y1="2" x2="8" y2="6"></line>
-												<line x1="3" y1="10" x2="21" y2="10"></line>
-											</svg>
-											<span>18/03/2024</span>
-										</div>
+								<div class="news-content">
+									<h3><a href="#">Gala dinner kết nối doanh nghiệp Việt-Campuchia</a></h3>
+									<p>Chương trình gala dinner thường niên tạo cơ hội kết nối và giao lưu giữa các doanh nghiệp hai nước...</p>
+									<div class="news-meta">
+										<span class="news-date">18/03/2024</span>
+										<a href="news-detail.html" class="news-link">Đọc thêm →</a>
 									</div>
 								</div>
 							</article>
 
-							<article class="related-news-card">
-								<div class="related-news-image">
-									<img src="https://vcba.biz/wp-content/uploads/2024/03/sl3.jpg" alt="Tin tức liên quan 2"/>
+							<article class="news-card standard compact">
+								<div class="news-image">
+									<img src="https://vcba.biz/wp-content/uploads/2024/03/sl3.jpg" alt="Hội thảo đầu tư"/>
+									<div class="news-category">Đầu tư</div>
 								</div>
-								<div class="related-news-content">
-									<div class="related-news-category">Hội thảo</div>
-									<h3 class="related-news-title"><a href="#">Hội thảo về cơ hội đầu tư tại Campuchia</a></h3>
-									<p class="related-news-excerpt">Hội thảo cung cấp thông tin chi tiết về môi trường đầu tư và các lĩnh vực tiềm năng tại Campuchia...</p>
-									<div class="related-news-meta">
-										<div class="related-news-date">
-											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-												<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-												<line x1="16" y1="2" x2="16" y2="6"></line>
-												<line x1="8" y1="2" x2="8" y2="6"></line>
-												<line x1="3" y1="10" x2="21" y2="10"></line>
-											</svg>
-											<span>15/03/2024</span>
-										</div>
+								<div class="news-content">
+									<h3><a href="#">Hội thảo về cơ hội đầu tư tại Campuchia</a></h3>
+									<p>Hội thảo cung cấp thông tin chi tiết về môi trường đầu tư và các lĩnh vực tiềm năng tại Campuchia...</p>
+									<div class="news-meta">
+										<span class="news-date">15/03/2024</span>
+										<a href="news-detail.html" class="news-link">Đọc thêm →</a>
 									</div>
 								</div>
 							</article>
 
-							<article class="related-news-card">
-								<div class="related-news-image">
-									<img src="https://vcba.biz/wp-content/uploads/2024/03/sl5.jpg" alt="Tin tức liên quan 3"/>
+							<article class="news-card standard compact">
+								<div class="news-image">
+									<img src="https://vcba.biz/wp-content/uploads/2024/03/sl5.jpg" alt="Ký kết hợp tác"/>
+									<div class="news-category">Hợp tác</div>
 								</div>
-								<div class="related-news-content">
-									<div class="related-news-category">Hợp tác</div>
-									<h3 class="related-news-title"><a href="#">Ký kết thỏa thuận hợp tác mới</a></h3>
-									<p class="related-news-excerpt">VCBA ký kết thỏa thuận hợp tác với Hiệp hội Doanh nghiệp Campuchia để thúc đẩy thương mại hai chiều...</p>
-									<div class="related-news-meta">
-										<div class="related-news-date">
-											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-												<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-												<line x1="16" y1="2" x2="16" y2="6"></line>
-												<line x1="8" y1="2" x2="8" y2="6"></line>
-												<line x1="3" y1="10" x2="21" y2="10"></line>
-											</svg>
-											<span>12/03/2024</span>
-										</div>
+								<div class="news-content">
+									<h3><a href="#">Ký kết thỏa thuận hợp tác mới</a></h3>
+									<p>VCBA ký kết thỏa thuận hợp tác với Hiệp hội Doanh nghiệp Campuchia để thúc đẩy thương mại hai chiều...</p>
+									<div class="news-meta">
+										<span class="news-date">12/03/2024</span>
+										<a href="news-detail.html" class="news-link">Đọc thêm →</a>
 									</div>
 								</div>
 							</article>
