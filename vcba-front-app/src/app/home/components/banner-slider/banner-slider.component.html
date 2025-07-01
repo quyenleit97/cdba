@@ -1,0 +1,43 @@
+<!-- Banner Slider Section - Enhanced Modern Version -->
+<div class="banner-section">
+  <div class="banner-slider-wrapper" 
+       (mouseenter)="onMouseEnter()" 
+       (mouseleave)="onMouseLeave()">
+    <div class="slider">
+      <div class="img" 
+           *ngFor="let slide of slides; let i = index" 
+           [class.active]="i === currentSlide">
+        <img [src]="slide.image" [alt]="slide.alt"/>
+      </div>
+    </div>
+    
+    <!-- Enhanced Slider Navigation Dots -->
+    <div class="slider-nav">
+      <div class="slider-dot" 
+           *ngFor="let slide of slides; let i = index"
+           [class.active]="i === currentSlide"
+           (click)="setSlide(i)"
+           role="button" 
+           [attr.aria-label]="'Chuyển đến slide ' + (i + 1)" 
+           tabindex="0">
+      </div>
+    </div>
+    
+    <!-- Enhanced Slider Arrow Controls with Modern Icons -->
+    <div class="slider-arrow prev" 
+         (click)="prevSlide()" 
+         role="button" 
+         aria-label="Slide trước">
+      <span>❮</span>
+    </div>
+    <div class="slider-arrow next" 
+         (click)="nextSlide()" 
+         role="button" 
+         aria-label="Slide tiếp theo">
+      <span>❯</span>
+    </div>
+    
+    <!-- Progress Bar for Auto-slide -->
+    <div class="banner-progress-bar"></div>
+  </div>
+</div> 

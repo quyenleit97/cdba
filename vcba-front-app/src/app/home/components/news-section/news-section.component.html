@@ -1,0 +1,43 @@
+<section id="news" class="section">
+  <div class="section-content">
+    <div class="news-header">
+      <h2>TIN TỨC VÀ SỰ KIỆN</h2>
+      <p>Cập nhật những thông tin và hoạt động mới nhất từ VCBA và cộng đồng doanh nghiệp.</p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+      <button 
+        *ngFor="let category of categories"
+        (click)="filterNews(category)"
+        [class.active]="category === selectedCategory"
+        class="filter-btn">
+        {{ category }}
+      </button>
+    </div>
+
+    <!-- News Grid -->
+    <div class="news-grid">
+      <!-- Loop through filtered news -->
+      <div *ngFor="let newsItem of filteredNews" class="news-card">
+        <div class="news-image">
+          <a [routerLink]="newsItem.link">
+            <img [src]="newsItem.image" [alt]="newsItem.title"/>
+          </a>
+        </div>
+        <div class="news-content">
+          <h3><a [routerLink]="newsItem.link">{{ newsItem.title }}</a></h3>
+          <p>{{ newsItem.excerpt }}</p>
+          <div class="news-card-footer">
+            <span class="news-date">{{ newsItem.date }}</span>
+            <a [routerLink]="newsItem.link" class="news-link">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-cta">
+      <a routerLink="/news-detail" class="btn btn-primary">Xem thêm bài viết</a>
+    </div>
+  </div>
+</section> 

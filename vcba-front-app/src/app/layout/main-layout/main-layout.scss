@@ -1,0 +1,16 @@
+#header .main-nav ul a:hover {
+    background-color: #f5f5f5 !important; /* Màu nền khi hover */
+}
+
+/* 8. Style cho mục menu đang active (quan trọng nhất) */
+#header .main-nav > li > a.active {
+    background: var(--primary-blue, #1E40AF) !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15) !important;
+}
+
+/* 9. Tắt vòng tròn focus khó chịu khi click */
+#header .main-nav > li > a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

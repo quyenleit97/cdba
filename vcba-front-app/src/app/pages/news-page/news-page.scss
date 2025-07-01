@@ -1,0 +1,62 @@
+
+// Category Filter Buttons
+.category-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+
+  .category-btn {
+    padding: 10px 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 50px; // Pill shape
+    background-color: #fff;
+    color: #343a40;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #f1f3f5;
+      border-color: #ced4da;
+    }
+
+    &.active {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+  }
+}
+
+// Small adjustments for the remaining filters
+.news-filter-wrapper {
+  // The original template might have some top margin/padding
+  // I remove any top margin to make it closer to the category buttons
+  margin-top: 0; 
+}
+.news-filter-section .news-filter-wrapper {
+  padding-top: 0; // Compatibility with original template styles
+}
+
+.news-filter-section {
+    position: relative !important;
+    top: auto !important;
+}
+
+.no-articles-found {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 30px;
+
+    p {
+        font-size: 18px;
+        color: #6c757d;
+        font-weight: 500;
+    }
+}
