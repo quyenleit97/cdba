@@ -6,7 +6,50 @@
     <!-- News Section -->
     <app-news-section></app-news-section>
     
-    <!-- About Section -->
-    <app-about-section></app-about-section>
+    <!-- About VCBA Section -->
+    <section class="about-vcba-section">
+      <div class="section-content">
+        <div class="about-header">
+          <h2>GIỚI THIỆU VỀ VCBA</h2>
+          <p>Hiệp hội Doanh nghiệp Việt Nam tại Campuchia - Kết nối và phát triển bền vững</p>
+        </div>
+    
+        <!-- Dynamic About Sections -->
+        <ng-container *ngFor="let section of aboutSections">
+          <div class="about-row" [class.reverse]="section.layout === 'reverse'">
+            <div class="about-image">
+              <img [src]="section.imageUrl" [alt]="section.altText">
+            </div>
+            <div class="about-text">
+              <h3>{{ section.title }}</h3>
+              <p *ngFor="let paragraph of section.paragraphs">{{ paragraph }}</p>
+            </div>
+          </div>
+        </ng-container>
+        
+      </div>
+    </section> 
+
+    <!-- Member Logos Section -->
+    <section class="member-logos-section">
+      <div class="section-content">
+        <div class="section-header">
+          <h2>HỘI VIÊN TIÊU BIỂU</h2>
+          <p>Các doanh nghiệp thành viên hàng đầu của VCBA</p>
+        </div>
+        <div class="member-grid">
+          <a *ngFor="let member of members" [href]="member.profileUrl" target="_blank" class="member-card">
+            <div class="member-logo">
+              <img [src]="member.logoUrl" [alt]="member.name">
+            </div>
+            <div class="member-info">
+              <h4>{{ member.name }}</h4>
+              <p>{{ member.field }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </div>
-</main> 
+</main>  
