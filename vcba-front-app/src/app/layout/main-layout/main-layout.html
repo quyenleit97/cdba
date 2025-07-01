@@ -40,19 +40,19 @@
 					<div class="flex-col hide-for-medium flex-right">
 						<ul class="nav top-bar-nav nav-right language-switcher">
 							<li>
-								<a href="https://vcba.biz/" class="lang-link">
+								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('vi')" [class.active]="translate.currentLang === 'vi'">
 									<span class="flag flag-vn">🇻🇳</span>
 									<span>Tiếng Việt</span>
 								</a>
 							</li>
 							<li>
-								<a href="https://vcba.biz/en/trang-chu-english-2/" class="lang-link">
+								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('en')" [class.active]="translate.currentLang === 'en'">
 									<span class="flag flag-us">🇺🇸</span>
 									<span>English</span>
 								</a>
 							</li>
 							<li>
-								<a href="https://vcba.biz/km/trang-chu-%e1%9e%97%e1%9e%b6%e1%9e%9f%e1%9e%b6%e1%9e%81%e1%9f%92%e1%9e%98%e1%9f%82%e1%9e%9a-2/" class="lang-link">
+								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('km')" [class.active]="translate.currentLang === 'km'">
 									<span class="flag flag-kh">🇰🇭</span>
 									<span>ភាសាខ្មែរ</span>
 								</a>
@@ -76,27 +76,18 @@
 						<!-- Main Navigation -->
 						<nav class="header-nav hide-for-medium">
 							<ul class="nav main-nav">
-								<li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">TRANG CHỦ</a></li>
-								<li><a href="#" routerLinkActive="active">VỀ VCBA</a>
-									<ul>
-										<li><a href="#">Thư ngỏ</a></li>
-										<li><a href="#">Điều lệ</a></li>
-										<li><a href="#">Lịch sử hình thành và phát triển</a></li>
-										<li><a href="#">Thành tích - Giải thưởng</a></li>
+								<li *ngFor="let item of menuItems">
+									<a href="javascript:void(0);" [routerLink]="item.routerLink" 
+									   routerLinkActive="active" 
+									   [routerLinkActiveOptions]="{exact: !!item.exact}">
+									   {{ item.labelKey | translate }}
+									</a>
+									<ul *ngIf="item.children && item.children.length > 0">
+										<li *ngFor="let subItem of item.children">
+											<a href="javascript:void(0);" [routerLink]="subItem.routerLink" routerLinkActive="active">{{ subItem.labelKey | translate }}</a>
+										</li>
 									</ul>
 								</li>
-								<li><a href="#" routerLinkActive="active">CƠ CẤU TỔ CHỨC</a>
-									<ul>
-										<li><a href="#">Sơ đồ tổ chức</a></li>
-										<li><a href="#">Ban Thường vụ</a></li>
-										<li><a href="#">Ban Chấp hành</a></li>
-									</ul>
-								</li>
-								<li><a routerLink="/news" routerLinkActive="active">DANH SÁCH HỘI VIÊN</a></li>
-								<li><a href="#" routerLinkActive="active">ĐĂNG KÝ HỘI VIÊN</a></li>
-								<li><a href="#" routerLinkActive="active">DỰ ÁN</a></li>
-								<li><a href="#" routerLinkActive="active">VĂN BẢN PHÁP LUẬT</a></li>
-								<li><a href="#" routerLinkActive="active">LIÊN HỆ</a></li>
 							</ul>
 						</nav>
 						

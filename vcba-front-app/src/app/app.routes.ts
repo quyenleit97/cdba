@@ -12,7 +12,26 @@ export const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'news', component: NewsPageComponent, data: { headerStatic: true } },
-      { path: 'news-detail', component: NewsDetail }
+      { path: 'news-detail', component: NewsDetail },
+
+      // Temporary routes, pointing to HomeComponent
+      { path: 'about', component: HomeComponent },
+      { path: 'organization', component: HomeComponent },
+      { path: 'register', component: HomeComponent },
+      { path: 'projects', component: HomeComponent },
+      { path: 'legal', component: HomeComponent },
+      { path: 'contact', component: HomeComponent },
+
+      // Temporary child routes for 'about'
+      { path: 'about/letter', component: HomeComponent },
+      { path: 'about/rules', component: HomeComponent },
+      { path: 'about/history', component: HomeComponent },
+      { path: 'about/awards', component: HomeComponent },
+
+      // Temporary child routes for 'organization'
+      { path: 'organization/chart', component: HomeComponent },
+      { path: 'organization/board', component: HomeComponent },
+      { path: 'organization/executive', component: HomeComponent },
     ]
   },
   { path: '**', redirectTo: '' }
