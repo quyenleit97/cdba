@@ -19,11 +19,12 @@
     <!-- News Grid -->
     <div class="news-grid">
       <!-- Loop through filtered news -->
-      <div *ngFor="let newsItem of filteredNews" class="news-card">
+      <div *ngFor="let newsItem of filteredNews" class="news-card" [attr.data-category]="newsItem.category">
         <div class="news-image">
           <a [routerLink]="newsItem.link">
             <img [src]="newsItem.image" [alt]="newsItem.title"/>
           </a>
+          <div class="news-category">{{ newsItem.category }}</div>
         </div>
         <div class="news-content">
           <h3><a [routerLink]="newsItem.link">{{ newsItem.title }}</a></h3>

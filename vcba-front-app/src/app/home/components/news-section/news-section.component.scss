@@ -31,28 +31,34 @@
 .filter-btn.active {
     background-color: var(--primary-blue, #1E40AF);
     color: white;
-    border-color: var(--primary-blue-dark, #1E3A8A);
+    border-color: transparent;
     box-shadow: 0 4px 10px rgba(30, 64, 175, 0.3);
+    outline: none;
 }
 
 /* News Grid and Card Styling */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .news-card {
     background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,.07);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
 }
 
 .news-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.news-image {
+    position: relative;
 }
 
 .news-image img {
@@ -60,6 +66,25 @@
     height: 200px;
     object-fit: cover;
     display: block;
+}
+
+.news-category {
+    position: absolute;
+    top: 15px;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    z-index: 1;
+    color: white;
+    background-color: var(--primary-blue, #1E40AF); /* Default color */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Specific color for a specific category */
+.news-card[data-category="Hoạt động hội viên"] .news-category {
+    background-color: #10B981; /* Success Green */
 }
 
 .news-content {
