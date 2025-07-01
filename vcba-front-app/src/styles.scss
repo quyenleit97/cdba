@@ -747,16 +747,22 @@ a[href]:not(.nav-link):not(.logo):not(.social-link) {
         font-size: 0.85rem !important;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        padding: var(--space-3) var(--space-5) !important;
+        padding: var(--space-2) var(--space-4) !important; /* Adjusted padding */
         border-radius: var(--radius-lg) !important;
         position: relative;
         transition: all var(--transition-normal) !important;
         //border: 1px solid transparent !important;
         background: transparent !important;
-        overflow: hidden;
+        overflow: visible; /* Allow content to be visible */
+        white-space: normal; /* Allow text to wrap */
+        line-height: 1.4; /* Improve readability for wrapped text */
         isolation: isolate;
         text-align: center !important;
         margin-bottom: 0 !important;
+        display: flex; /* Use flexbox for alignment */
+        align-items: center;
+        justify-content: center;
+        min-height: 40px; /* Ensure a minimum height */
     }
 
     /* Gradient background effect */

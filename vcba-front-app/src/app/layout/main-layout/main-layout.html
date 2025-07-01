@@ -68,7 +68,7 @@
 					<div class="header-inner">
 						<!-- Logo -->
 						<div id="logo" class="flex-col logo">
-							<a href="https://vcba.biz/" title="VCBA" rel="home">
+							<a [routerLink]="['/', currentLang]" title="VCBA" rel="home">
 								<img src="assets/image/logo.png" alt="VCBA"/>
 							</a>
 						</div>
@@ -204,9 +204,9 @@
 						<p>© 2024 VCBA - Hiệp hội Doanh nghiệp Việt Nam-Campuchia. All rights reserved.</p>
 					</div>
 					<div class="footer-bottom-links">
-						<a href="#privacy">Chính sách bảo mật</a>
-						<a href="#terms">Điều khoản sử dụng</a>
-						<a href="#sitemap">Sơ đồ website</a>
+						<a [routerLink]="['/', currentLang, 'privacy']">Chính sách bảo mật</a>
+						<a [routerLink]="['/', currentLang, 'terms']">Điều khoản sử dụng</a>
+						<a [routerLink]="['/', currentLang, 'sitemap']">Sơ đồ website</a>
 					</div>
 				</div>
 			</div>

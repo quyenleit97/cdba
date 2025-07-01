@@ -32,6 +32,11 @@ export const routes: Routes = [
       { path: 'organization/chart', component: HomeComponent },
       { path: 'organization/board', component: HomeComponent },
       { path: 'organization/executive', component: HomeComponent },
+
+      // Temporary footer routes
+      { path: 'privacy', component: HomeComponent },
+      { path: 'terms', component: HomeComponent },
+      { path: 'sitemap', component: HomeComponent },
     ]
   },
   { path: '', redirectTo: 'vi', pathMatch: 'full' },
