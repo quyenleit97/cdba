@@ -6,7 +6,7 @@ import { NewsPageComponent } from './pages/news-page/news-page';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: ':lang',
     component: MainLayoutComponent,
     children: [
       { path: '', component: HomeComponent },
@@ -34,5 +34,6 @@ export const routes: Routes = [
       { path: 'organization/executive', component: HomeComponent },
     ]
   },
-  { path: '**', redirectTo: '' }
+  { path: '', redirectTo: 'vi', pathMatch: 'full' },
+  { path: '**', redirectTo: 'vi' }
 ];

@@ -40,19 +40,19 @@
 					<div class="flex-col hide-for-medium flex-right">
 						<ul class="nav top-bar-nav nav-right language-switcher">
 							<li>
-								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('vi')" [class.active]="translate.currentLang === 'vi'">
+								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('vi')" [class.active]="currentLang === 'vi'">
 									<span class="flag flag-vn">🇻🇳</span>
 									<span>Tiếng Việt</span>
 								</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('en')" [class.active]="translate.currentLang === 'en'">
+								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('en')" [class.active]="currentLang === 'en'">
 									<span class="flag flag-us">🇺🇸</span>
 									<span>English</span>
 								</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('km')" [class.active]="translate.currentLang === 'km'">
+								<a href="javascript:void(0);" class="lang-link" (click)="changeLanguage('km')" [class.active]="currentLang === 'km'">
 									<span class="flag flag-kh">🇰🇭</span>
 									<span>ភាសាខ្មែរ</span>
 								</a>
@@ -77,14 +77,15 @@
 						<nav class="header-nav hide-for-medium">
 							<ul class="nav main-nav">
 								<li *ngFor="let item of menuItems">
-									<a href="javascript:void(0);" [routerLink]="item.routerLink" 
+									<a href="javascript:void(0);" 
+									   [routerLink]="item.children ? null : ['/', currentLang, item.routerLink]"
 									   routerLinkActive="active" 
 									   [routerLinkActiveOptions]="{exact: !!item.exact}">
 									   {{ item.labelKey | translate }}
 									</a>
 									<ul *ngIf="item.children && item.children.length > 0">
 										<li *ngFor="let subItem of item.children">
-											<a href="javascript:void(0);" [routerLink]="subItem.routerLink" routerLinkActive="active">{{ subItem.labelKey | translate }}</a>
+											<a href="javascript:void(0);" [routerLink]="['/', currentLang, subItem.routerLink]" routerLinkActive="active">{{ subItem.labelKey | translate }}</a>
 										</li>
 									</ul>
 								</li>

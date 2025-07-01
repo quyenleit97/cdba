@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet, RouterModule } from '@angular/router';
-import { filter, map, mergeMap } from 'rxjs/operators';
+import { filter, map, mergeMap, switchMap } from 'rxjs/operators';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -18,33 +18,34 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class MainLayoutComponent implements OnInit {
   isHeaderStatic: boolean = false;
+  currentLang: string = 'vi';
 
   menuItems = [
-    { labelKey: 'menu.home', routerLink: '/home', exact: true },
+    { labelKey: 'menu.home', routerLink: 'home', exact: true },
     {
       labelKey: 'menu.about',
-      routerLink: '/about',
+      routerLink: 'about',
       children: [
-        { labelKey: 'menu.about.letter', routerLink: '/about/letter' },
-        { labelKey: 'menu.about.rules', routerLink: '/about/rules' },
-        { labelKey: 'menu.about.history', routerLink: '/about/history' },
-        { labelKey: 'menu.about.awards', routerLink: '/about/awards' },
+        { labelKey: 'menu.about.letter', routerLink: 'about/letter' },
+        { labelKey: 'menu.about.rules', routerLink: 'about/rules' },
+        { labelKey: 'menu.about.history', routerLink: 'about/history' },
+        { labelKey: 'menu.about.awards', routerLink: 'about/awards' },
       ]
     },
     {
       labelKey: 'menu.organization',
-      routerLink: '/organization',
+      routerLink: 'organization',
       children: [
-        { labelKey: 'menu.organization.chart', routerLink: '/organization/chart' },
-        { labelKey: 'menu.organization.board', routerLink: '/organization/board' },
-        { labelKey: 'menu.organization.executive', routerLink: '/organization/executive' },
+        { labelKey: 'menu.organization.chart', routerLink: 'organization/chart' },
+        { labelKey: 'menu.organization.board', routerLink: 'organization/board' },
+        { labelKey: 'menu.organization.executive', routerLink: 'organization/executive' },
       ]
     },
-    { labelKey: 'menu.members', routerLink: '/news' },
-    { labelKey: 'menu.register', routerLink: '/register' },
-    { labelKey: 'menu.projects', routerLink: '/projects' },
-    { labelKey: 'menu.legal', routerLink: '/legal' },
-    { labelKey: 'menu.contact', routerLink: '/contact' },
+    { labelKey: 'menu.members', routerLink: 'news' },
+    { labelKey: 'menu.register', routerLink: 'register' },
+    { labelKey: 'menu.projects', routerLink: 'projects' },
+    { labelKey: 'menu.legal', routerLink: 'legal' },
+    { labelKey: 'menu.contact', routerLink: 'contact' },
   ];
 
   constructor(
@@ -54,12 +55,18 @@ export class MainLayoutComponent implements OnInit {
   ) {
     translate.addLangs(['vi', 'en', 'km']);
     translate.setDefaultLang('vi');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang?.match(/vi|en|km/) ? browserLang : 'vi');
   }
 
   ngOnInit() {
+    this.activatedRoute.params.pipe(
+      map(params => params['lang']),
+      filter(lang => !!lang && ['vi', 'en', 'km'].includes(lang)),
+      switchMap(lang => {
+        this.currentLang = lang;
+        return this.translate.use(lang);
+      })
+    ).subscribe();
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
@@ -77,6 +84,17 @@ export class MainLayoutComponent implements OnInit {
   }
 
   changeLanguage(lang: string) {
-    this.translate.use(lang);
+    const urlTree = this.router.parseUrl(this.router.url);
+    const primaryOutlet = urlTree.root.children['primary'];
+    
+    if (primaryOutlet) {
+        const segments = primaryOutlet.segments.map(s => s.path);
+        // Replace the lang segment
+        segments[0] = lang;
+        this.router.navigate(segments);
+    } else {
+        // Fallback for root or unexpected URL structure
+        this.router.navigate([lang]);
+    }
   }
 }
