@@ -1,8 +1,8 @@
 <section id="news" class="section">
   <div class="section-content">
     <div class="news-header">
-      <h2>TIN TỨC VÀ SỰ KIỆN</h2>
-      <p>Cập nhật những thông tin và hoạt động mới nhất từ VCBA và cộng đồng doanh nghiệp.</p>
+      <h2>{{ 'home.news.title' | translate }}</h2>
+      <p>{{ 'home.news.subtitle' | translate }}</p>
     </div>
 
     <!-- Filter Controls -->
@@ -10,9 +10,9 @@
       <button 
         *ngFor="let category of categories"
         (click)="filterNews(category)"
-        [class.active]="category === selectedCategory"
+        [class.active]="category.value === selectedCategoryValue"
         class="filter-btn">
-        {{ category }}
+        {{ category.key | translate }}
       </button>
     </div>
 
@@ -31,14 +31,14 @@
           <p>{{ newsItem.excerpt }}</p>
           <div class="news-card-footer">
             <span class="news-date">{{ newsItem.date }}</span>
-            <a [routerLink]="newsItem.link" class="news-link">Xem thêm</a>
+            <a [routerLink]="newsItem.link" class="news-link">{{ 'home.news.viewMore' | translate }}</a>
           </div>
         </div>
       </div>
     </div>
     
     <div class="news-cta">
-      <a routerLink="/news-detail" class="btn btn-primary">Xem thêm bài viết</a>
+      <a routerLink="/news-detail" class="btn btn-primary">{{ 'home.news.viewMoreArticles' | translate }}</a>
     </div>
   </div>
 </section> 
