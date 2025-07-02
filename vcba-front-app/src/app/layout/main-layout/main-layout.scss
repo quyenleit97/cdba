@@ -14,3 +14,21 @@
     outline: none !important;
     box-shadow: none !important;
 }
+
+/* Caret for dropdown menu items */
+.menu-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  vertical-align: middle;
+  border-top: 5px solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate caret on hover/focus of parent */
+.nav.main-nav > li:hover > a .menu-caret {
+  transform: rotate(180deg);
+}

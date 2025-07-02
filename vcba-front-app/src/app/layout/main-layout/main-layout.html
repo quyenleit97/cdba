@@ -83,6 +83,7 @@
 									   routerLinkActive="active" 
 									   [routerLinkActiveOptions]="{exact: !!item.exact}">
 									   {{ item.labelKey | translate }}
+									   <span *ngIf="item.children && item.children.length > 0" class="menu-caret"></span>
 									</a>
 									<ul *ngIf="item.children && item.children.length > 0">
 										<li *ngFor="let subItem of item.children">
