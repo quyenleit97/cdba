@@ -2,25 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LoadingSpinner } from '../../shared/loading-spinner/loading-spinner';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 // Define the structure for a news article
 export interface NewsArticle {
   id: number;
-  title: string;
-  description: string;
+  slug: string;
+  titleKey: string;
+  descriptionKey: string;
   imageUrl: string;
   category: string;
-  categoryName: string; // e.g., 'Hoạt động sự kiện'
+  categoryNameKey: string;
   date: string;
   views: number;
   featured: boolean;
-  link: string;
 }
 
 @Component({
   selector: 'app-news-page',
   standalone: true,
-  imports: [RouterLink, LoadingSpinner, CommonModule],
+  imports: [RouterLink, LoadingSpinner, CommonModule, TranslateModule],
   templateUrl: './news-page.html',
   styleUrl: './news-page.scss'
 })
@@ -29,12 +30,12 @@ export class NewsPageComponent implements OnInit {
   contentVisible: boolean = false;
 
   categories = [
-    { value: 'all', name: 'Tất cả' },
-    { value: 'hoat-dong', name: 'Hoạt động sự kiện' },
-    { value: 'noi-bo', name: 'Hoạt động nội bộ' },
-    { value: 'dau-tu', name: 'Đầu tư' },
-    { value: 'hop-tac', name: 'Hợp tác' },
-    { value: 'networking', name: 'Networking' }
+    { value: 'all', nameKey: 'news.page.categories.all' },
+    { value: 'hoat-dong', nameKey: 'news.page.categories.events' },
+    { value: 'noi-bo', nameKey: 'news.page.categories.internal' },
+    { value: 'dau-tu', nameKey: 'news.page.categories.investment' },
+    { value: 'hop-tac', nameKey: 'news.page.categories.cooperation' },
+    { value: 'networking', nameKey: 'news.page.categories.networking' }
   ];
   activeCategory: string = 'all';
 
@@ -42,93 +43,95 @@ export class NewsPageComponent implements OnInit {
   allArticles: NewsArticle[] = [
     {
       id: 1,
-      title: 'VCBA tổ chức thành công Hội nghị thường niên 2024',
-      description: 'Hội nghị thường niên VCBA 2024 đã diễn ra thành công với sự tham gia của hơn 200 đại biểu đại diện cho các doanh nghiệp Việt Nam tại Campuchia...',
+      slug: 'vcba-annual-conference-2024',
+      titleKey: 'news.page.article1.title',
+      descriptionKey: 'news.page.article1.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/sl5.jpg',
       category: 'hoat-dong',
-      categoryName: 'Hoạt động sự kiện',
+      categoryNameKey: 'news.page.categories.events',
       date: '25/03/2024',
       views: 1247,
       featured: true,
-      link: '/news-detail'
     },
     {
       id: 2,
-      title: 'Gala dinner kết nối doanh nghiệp Việt-Campuchia',
-      description: 'Chương trình gala dinner thường niên tạo cơ hội kết nối và giao lưu giữa các doanh nghiệp hai nước...',
+      slug: 'gala-dinner-vietnam-cambodia',
+      titleKey: 'news.page.article2.title',
+      descriptionKey: 'news.page.article2.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/sl1.jpg',
       category: 'networking',
-      categoryName: 'Networking',
+      categoryNameKey: 'news.page.categories.networking',
       date: '18/03/2024',
       views: 856,
       featured: false,
-      link: '/news-detail'
     },
     {
       id: 3,
-      title: 'Hội thảo về cơ hội đầu tư tại Campuchia',
-      description: 'Hội thảo cung cấp thông tin chi tiết về môi trường đầu tư và các lĩnh vực tiềm năng tại Campuchia...',
+      slug: 'investment-opportunities-seminar-cambodia',
+      titleKey: 'news.page.article3.title',
+      descriptionKey: 'news.page.article3.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/sl3.jpg',
       category: 'dau-tu',
-      categoryName: 'Đầu tư',
+      categoryNameKey: 'news.page.categories.investment',
       date: '15/03/2024',
       views: 723,
       featured: false,
-      link: '/news-detail'
     },
     {
       id: 4,
-      title: 'Nhiều dư địa cho doanh nghiệp Việt Nam đầu tư kinh doanh tại Campuchia',
-      description: 'Đại sứ quán Việt Nam tại Campuchia tổ chức hội nghị gặp gỡ doanh nghiệp nhằm tạo điều kiện cho các doanh nghiệp mở rộng hoạt động...',
+      slug: 'vietnamese-enterprises-investment-opportunities-cambodia',
+      titleKey: 'news.page.article4.title',
+      descriptionKey: 'news.page.article4.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/ttxvn-1601-vn-campuchia-1-8424.jpg-300x198.webp',
       category: 'dau-tu',
-      categoryName: 'Đầu tư',
+      categoryNameKey: 'news.page.categories.investment',
       date: '12/03/2024',
       views: 1089,
       featured: false,
-      link: '/news-detail'
     },
     {
       id: 5,
-      title: 'Metfone - Nhà mạng viễn thông lớn nhất Campuchia',
-      description: 'Viettel Cambodia với thương hiệu Metfone hoạt động từ năm 2009 và hiện là nhà mạng số 1 tại Campuchia với hơn 6 triệu khách hàng...',
+      slug: 'metfone-largest-telecom-operator-cambodia',
+      titleKey: 'news.page.article5.title',
+      descriptionKey: 'news.page.article5.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/Metfone-300x189.png',
-      category: 'networking', // Assuming this is a member's business
-      categoryName: 'Networking',
+      category: 'networking',
+      categoryNameKey: 'news.page.categories.networking',
       date: '10/03/2024',
       views: 945,
       featured: false,
-      link: '/news-detail'
     },
      {
       id: 6,
-      title: 'Thúc đẩy hợp tác thương mại Việt Nam - Campuchia',
-      description: 'Nhiều cơ hội hợp tác trong các lĩnh vực nông nghiệp, công nghiệp chế biến, du lịch và dịch vụ giữa hai nước được mở ra...',
+      slug: 'promoting-trade-cooperation-vietnam-cambodia',
+      titleKey: 'news.page.article6.title',
+      descriptionKey: 'news.page.article6.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/ho-p-ta-c-20231212154505-1.jpg',
       category: 'hop-tac',
-      categoryName: 'Hợp tác',
+      categoryNameKey: 'news.page.categories.cooperation',
       date: '08/03/2024',
       views: 678,
       featured: false,
-      link: '/news-detail'
     },
     {
       id: 7,
-      title: 'Hội thảo chuyên đề về xuất nhập khẩu',
-      description: 'Hội thảo cung cấp thông tin về quy trình xuất nhập khẩu và các thủ tục hải quan tại Campuchia...',
+      slug: 'workshop-on-import-export',
+      titleKey: 'news.page.article7.title',
+      descriptionKey: 'news.page.article7.description',
       imageUrl: 'https://vcba.biz/wp-content/uploads/2024/03/sl5.jpg',
       category: 'noi-bo',
-      categoryName: 'Hoạt động nội bộ',
+      categoryNameKey: 'news.page.categories.internal',
       date: '28/02/2024',
       views: 389,
       featured: false,
-      link: '/news-detail'
     }
   ];
 
   // Articles to be displayed in the template
   featuredArticle: NewsArticle | undefined;
   standardArticles: NewsArticle[] = [];
+  
+  constructor(public translate: TranslateService) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);

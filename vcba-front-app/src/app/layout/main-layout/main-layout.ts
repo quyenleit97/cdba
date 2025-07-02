@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet, RouterModule } from '@angular/router';
 import { filter, map, mergeMap, switchMap } from 'rxjs/operators';
@@ -51,13 +51,17 @@ export class MainLayoutComponent implements OnInit {
   constructor(
     private router: Router, 
     private activatedRoute: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private cdr: ChangeDetectorRef
   ) {
     translate.addLangs(['vi', 'en', 'km']);
-    translate.setDefaultLang('vi');
   }
 
   ngOnInit() {
+    this.translate.onLangChange.subscribe(() => {
+      this.cdr.detectChanges();
+    });
+
     this.activatedRoute.params.pipe(
       map(params => params['lang']),
       filter(lang => !!lang && ['vi', 'en', 'km'].includes(lang)),
@@ -87,14 +91,21 @@ export class MainLayoutComponent implements OnInit {
     const urlTree = this.router.parseUrl(this.router.url);
     const primaryOutlet = urlTree.root.children['primary'];
     
+    let navigationPromise: Promise<boolean>;
+
     if (primaryOutlet) {
         const segments = primaryOutlet.segments.map(s => s.path);
-        // Replace the lang segment
         segments[0] = lang;
-        this.router.navigate(segments);
+        navigationPromise = this.router.navigate(segments);
     } else {
-        // Fallback for root or unexpected URL structure
-        this.router.navigate([lang]);
+        navigationPromise = this.router.navigate([lang]);
     }
+
+    navigationPromise.then(() => {
+        // Force re-evaluation after navigation
+        this.translate.get('footer.copyright').subscribe(() => {
+            this.cdr.detectChanges();
+        });
+    });
   }
 }

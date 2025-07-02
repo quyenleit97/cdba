@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { allNewsData } from '../../../core/data/news.data';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news-section',
@@ -13,35 +13,38 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class NewsSectionComponent implements OnInit {
 
-  // Danh sách các danh mục để lọc
   categories = [
-    { key: 'home.news.categories.all', value: 'Tất cả' },
-    { key: 'home.news.categories.featured', value: 'Hoạt động nổi bật' },
-    { key: 'home.news.categories.member', value: 'Tin hội viên' },
-    { key: 'home.news.categories.upcoming', value: 'Sự kiện sắp tới' }
+    { key: 'home.news.categories.all', value: 'all' },
+    { key: 'home.news.categories.featured', value: 'home.news.categories.featured' },
+    { key: 'home.news.categories.member', value: 'home.news.categories.member' },
+    { key: 'home.news.categories.upcoming', value: 'home.news.categories.upcoming' }
   ];
   
-  // Biến theo dõi danh mục đang được chọn
-  selectedCategoryValue: string = 'Tất cả';
+  selectedCategoryValue: string = 'all';
 
-  // Mảng chứa các bài viết đã được lọc để hiển thị
   filteredNews: any[] = [];
-
-  // Mảng chứa tất cả các bài viết (được import từ file riêng)
   allNews = allNewsData;
 
+  constructor(public translate: TranslateService) {}
+
   ngOnInit() {
-    // Ban đầu, hiển thị tất cả bài viết
+    // Initial filter
     this.filterNews(this.categories[0]);
+    
+    // Subscribe to language changes to re-filter
+    this.translate.onLangChange.subscribe(() => {
+      // Find the currently selected category object to pass to filterNews
+      const currentCategory = this.categories.find(c => c.value === this.selectedCategoryValue) || this.categories[0];
+      this.filterNews(currentCategory);
+    });
   }
 
-  // Hàm để lọc tin tức theo danh mục được chọn
   filterNews(category: { key: string, value: string }) {
     this.selectedCategoryValue = category.value;
-    if (category.value === 'Tất cả') {
+    if (category.value === 'all') {
       this.filteredNews = this.allNews;
     } else {
-      this.filteredNews = this.allNews.filter(news => news.category === category.value);
+      this.filteredNews = this.allNews.filter(news => news.categoryKey === category.value);
     }
   }
 } 

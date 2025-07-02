@@ -20,7 +20,6 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(),
     importProvidersFrom(TranslateModule.forRoot({
-      defaultLanguage: 'vi',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

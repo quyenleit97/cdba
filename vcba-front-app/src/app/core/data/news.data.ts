@@ -1,56 +1,56 @@
 export const allNewsData = [
   {
     id: 1,
-    title: 'Việt Nam - Campuchia thúc đẩy hợp tác công nghiệp và thương mại',
-    excerpt: 'Việt Nam và Campuchia đã thống nhất một số biện pháp nhằm thúc đẩy hợp tác...',
+    titleKey: 'home.news.article1.title',
+    excerptKey: 'home.news.article1.excerpt',
     image: 'https://vcba.biz/wp-content/uploads/2024/03/ho-p-ta-c-20231212154505-1.jpg',
-    category: 'Hoạt động nổi bật',
+    categoryKey: 'home.news.categories.featured',
     date: '15/12/2023',
-    link: '/news-detail'
+    slug: 'vcba-annual-conference-2024'
   },
   {
     id: 2,
-    title: 'Hội nghị thường niên VCBA lần thứ 10',
-    excerpt: 'Hội nghị thường niên VCBA diễn ra tại Phnom Penh với sự tham dự của hơn 200 doanh nghiệp...',
+    titleKey: 'home.news.article2.title',
+    excerptKey: 'home.news.article2.excerpt',
     image: 'https://vcba.biz/wp-content/uploads/2024/03/sl1.jpg',
-    category: 'Sự kiện sắp tới',
+    categoryKey: 'home.news.categories.upcoming',
     date: '05/03/2024',
-    link: '/news-detail'
+    slug: 'vcba-annual-conference-2024'
   },
   {
     id: 3,
-    title: 'Metfone - Nhà mạng viễn thông lớn nhất Campuchia',
-    excerpt: 'Viettel Cambodia với thương hiệu Metfone hoạt động từ năm 2009 và hiện là nhà mạng số 1...',
+    titleKey: 'home.news.article3.title',
+    excerptKey: 'home.news.article3.excerpt',
     image: 'https://vcba.biz/wp-content/uploads/2024/03/Metfone-300x189.png',
-    category: 'Tin hội viên',
+    categoryKey: 'home.news.categories.member',
     date: '20/02/2024',
-    link: '/news-detail'
+    slug: 'vcba-annual-conference-2024'
   },
   {
     id: 4,
-    title: 'Gala dinner kết nối doanh nghiệp Việt-Campuchia',
-    excerpt: 'Chương trình gala dinner thường niên tạo cơ hội kết nối và giao lưu giữa các doanh nghiệp...',
+    titleKey: 'home.news.article4.title',
+    excerptKey: 'home.news.article4.excerpt',
     image: 'https://vcba.biz/wp-content/uploads/2024/03/sl3.jpg',
-    category: 'Sự kiện sắp tới',
+    categoryKey: 'home.news.categories.upcoming',
     date: '18/03/2024',
-    link: '/news-detail'
+    slug: 'vcba-annual-conference-2024'
   },
   {
     id: 5,
-    title: 'VCBA thăm và làm việc tại Đại sứ quán Việt Nam',
-    excerpt: 'Đoàn công tác của Hiệp hội Doanh nghiệp Việt Nam tại Campuchia đã có buổi làm việc quan trọng...',
+    titleKey: 'home.news.article5.title',
+    excerptKey: 'home.news.article5.excerpt',
     image: 'https://vcba.biz/wp-content/uploads/2024/03/ttxvn-1601-vn-campuchia-1-8424.jpg-300x198.webp',
-    category: 'Hoạt động nổi bật',
+    categoryKey: 'home.news.categories.featured',
     date: '16/01/2024',
-    link: '/news-detail'
+    slug: 'vcba-annual-conference-2024'
   },
   {
     id: 6,
-    title: 'Sacombank Cambodia nhận giải thưởng uy tín',
-    excerpt: 'Ngân hàng Sacombank chi nhánh Campuchia vinh dự nhận giải thưởng Ngân hàng bán lẻ tốt nhất...',
+    titleKey: 'home.news.article6.title',
+    excerptKey: 'home.news.article6.excerpt',
     image: 'https://via.placeholder.com/400x250.png/007bff/FFFFFF?text=Sacombank',
-    category: 'Tin hội viên',
+    categoryKey: 'home.news.categories.member',
     date: '25/03/2024',
-    link: '/news-detail'
+    slug: 'vcba-annual-conference-2024'
   }
 ]; 

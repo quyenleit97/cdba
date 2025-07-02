@@ -6,9 +6,9 @@
 	<div class="breadcrumb-section">
 		<div class="section-content">
 			<nav class="breadcrumb-nav">
-				<a routerLink="/">Trang chủ</a>
+				<a [routerLink]="['/', translate.currentLang]">{{ 'breadcrumb.home' | translate }}</a>
 				<span class="breadcrumb-separator">/</span>
-				<span class="current-page">Tất cả tin tức</span>
+				<span class="current-page">{{ 'breadcrumb.allNews' | translate }}</span>
 			</nav>
 		</div>
 	</div>
@@ -17,8 +17,8 @@
 	<section class="news-page-header">
 		<div class="section-content">
 			<div class="news-page-intro">
-				<h1>Tất cả tin tức VCBA</h1>
-				<p>Cập nhật những tin tức mới nhất về hoạt động của Hiệp hội Doanh nghiệp Việt Nam tại Campuchia</p>
+				<h1>{{ 'news.page.title' | translate }}</h1>
+				<p>{{ 'news.page.subtitle' | translate }}</p>
 			</div>
 		</div>
 	</section>
@@ -31,31 +31,31 @@
 						class="category-btn"
 						[class.active]="category.value === activeCategory"
 						(click)="selectCategory(category.value)">
-					{{ category.name }}
+					{{ category.nameKey | translate }}
 				</button>
 			</div>
 			<div class="news-filter-wrapper">
 				<div class="filter-controls">
 					<div class="filter-group">
-						<label for="sort-filter">Sắp xếp:</label>
+						<label for="sort-filter">{{ 'news.page.filters.sortBy' | translate }}:</label>
 						<select id="sort-filter" class="filter-select">
-							<option value="latest">Mới nhất</option>
-							<option value="oldest">Cũ nhất</option>
-							<option value="popular">Phổ biến</option>
+							<option value="latest">{{ 'news.page.filters.latest' | translate }}</option>
+							<option value="oldest">{{ 'news.page.filters.oldest' | translate }}</option>
+							<option value="popular">{{ 'news.page.filters.popular' | translate }}</option>
 						</select>
 					</div>
 					
 					<div class="filter-group">
-						<label for="view-filter">Hiển thị:</label>
+						<label for="view-filter">{{ 'news.page.filters.display' | translate }}:</label>
 						<select id="view-filter" class="filter-select">
-							<option value="grid">Dạng lưới</option>
-							<option value="list">Dạng danh sách</option>
+							<option value="grid">{{ 'news.page.filters.grid' | translate }}</option>
+							<option value="list">{{ 'news.page.filters.list' | translate }}</option>
 						</select>
 					</div>
 				</div>
 				
 				<div class="search-box">
-					<input type="text" id="news-search" placeholder="Tìm kiếm tin tức..." class="search-input">
+					<input type="text" id="news-search" [placeholder]="'news.page.filters.searchPlaceholder' | translate" class="search-input">
 					<button type="button" class="search-btn">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<circle cx="11" cy="11" r="8"></circle>
@@ -74,17 +74,17 @@
 				<!-- Featured News -->
 				<article class="news-card featured" *ngIf="featuredArticle">
 					<div class="news-image">
-						<img [src]="featuredArticle.imageUrl" [alt]="featuredArticle.title"/>
-						<div class="news-category">{{ featuredArticle.categoryName }}</div>
-						<div class="featured-badge">Tin nổi bật</div>
+						<img [src]="featuredArticle.imageUrl" [alt]="featuredArticle.titleKey | translate"/>
+						<div class="news-category">{{ featuredArticle.categoryNameKey | translate }}</div>
+						<div class="featured-badge">{{ 'news.page.featuredBadge' | translate }}</div>
 					</div>
 					<div class="news-content">
-						<h3><a [routerLink]="[featuredArticle.link, { id: featuredArticle.id }]">{{ featuredArticle.title }}</a></h3>
-						<p>{{ featuredArticle.description }}</p>
+						<h3><a [routerLink]="['/', translate.currentLang, 'news', featuredArticle.slug]">{{ featuredArticle.titleKey | translate }}</a></h3>
+						<p>{{ featuredArticle.descriptionKey | translate }}</p>
 						<div class="news-meta">
 							<span class="news-date">{{ featuredArticle.date }}</span>
-							<span class="news-views">{{ featuredArticle.views }} lượt xem</span>
-							<a [routerLink]="[featuredArticle.link, { id: featuredArticle.id }]" class="news-link">Đọc thêm →</a>
+							<span class="news-views">{{ featuredArticle.views }} {{ 'news.page.views' | translate }}</span>
+							<a [routerLink]="['/', translate.currentLang, 'news', featuredArticle.slug]" class="news-link">{{ 'news.card.readMore' | translate }} →</a>
 						</div>
 					</div>
 				</article>
@@ -92,16 +92,16 @@
 				<!-- Regular News Cards -->
 				<article class="news-card standard" *ngFor="let article of standardArticles">
 					<div class="news-image">
-						<img [src]="article.imageUrl" [alt]="article.title"/>
-						<div class="news-category">{{ article.categoryName }}</div>
+						<img [src]="article.imageUrl" [alt]="article.titleKey | translate"/>
+						<div class="news-category">{{ article.categoryNameKey | translate }}</div>
 					</div>
 					<div class="news-content">
-						<h3><a [routerLink]="[article.link, { id: article.id }]">{{ article.title }}</a></h3>
-						<p>{{ article.description }}</p>
+						<h3><a [routerLink]="['/', translate.currentLang, 'news', article.slug]">{{ article.titleKey | translate }}</a></h3>
+						<p>{{ article.descriptionKey | translate }}</p>
 						<div class="news-meta">
 							<span class="news-date">{{ article.date }}</span>
-							<span class="news-views">{{ article.views }} lượt xem</span>
-							<a [routerLink]="[article.link, { id: article.id }]" class="news-link">Đọc thêm →</a>
+							<span class="news-views">{{ article.views }} {{ 'news.page.views' | translate }}</span>
+							<a [routerLink]="['/', translate.currentLang, 'news', article.slug]" class="news-link">{{ 'news.card.readMore' | translate }} →</a>
 						</div>
 					</div>
 				</article>
@@ -109,7 +109,7 @@
 
 			<!-- Show message if no articles found -->
 			<div *ngIf="!featuredArticle" class="no-articles-found">
-				<p>Không tìm thấy bài viết nào trong danh mục này.</p>
+				<p>{{ 'news.page.noArticles' | translate }}</p>
 			</div>
 
 			<!-- Pagination -->
@@ -118,7 +118,7 @@
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<polyline points="15,18 9,12 15,6"></polyline>
 					</svg>
-					Trước
+					{{ 'news.page.pagination.previous' | translate }}
 				</button>
 				
 				<div class="pagination-numbers">
@@ -130,7 +130,7 @@
 				</div>
 				
 				<button class="pagination-btn next">
-					Sau
+					{{ 'news.page.pagination.next' | translate }}
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<polyline points="9,18 15,12 9,6"></polyline>
 					</svg>

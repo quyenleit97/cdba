@@ -12,7 +12,7 @@ export const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'news', component: NewsPageComponent, data: { headerStatic: true } },
-      { path: 'news-detail', component: NewsDetail },
+      { path: 'news/:slug', component: NewsDetail },
 
       // Temporary routes, pointing to HomeComponent
       { path: 'about', component: HomeComponent },
