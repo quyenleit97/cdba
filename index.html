@@ -1,150 +1,38 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Test Click Tự Động</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f4f7f9;
-            color: #333;
-            line-height: 1.6;
-            padding: 30px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #1a73e8;
-            border-bottom: 2px solid #e8eaed;
-            padding-bottom: 10px;
-        }
-        .test-elements {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin: 30px 0;
-            padding: 20px;
-            border: 1px dashed #ccc;
-            border-radius: 8px;
-        }
-        .clickable {
-            padding: 15px 20px;
-            border: 2px solid #ccc;
-            border-radius: 6px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 16px;
-            transition: all 0.2s ease;
-        }
-        .clickable:hover {
-            border-color: #1a73e8;
-            background-color: #f0f6ff;
-        }
-        .clicked {
-            background-color: #e8f5e9 !important;
-            border-color: #1e8e3e !important;
-            color: #1e8e3e;
-            font-weight: bold;
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .log-area {
-            margin-top: 30px;
-            background-color: #2d2d2d;
-            color: #f0f0f0;
-            padding: 20px;
-            border-radius: 8px;
-            height: 200px;
-            overflow-y: auto;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-        }
-        .log-entry {
-            padding-bottom: 5px;
-            border-bottom: 1px solid #444;
-            margin-bottom: 5px;
-        }
-        .log-time {
-            color: #8ab4f8;
-        }
-        .log-text {
-            color: #a7d1a7;
-        }
-        .xpath-list {
-            background: #f8f9fa;
-            border: 1px solid #e8eaed;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        code {
-            background-color: #e8eaed;
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-    </style>
-</head>
+<html>
 <body>
 
-    <div class="container">
-        <h1>Trang Test cho Extension Auto Clicker</h1>
-        <p>Sử dụng trang này để kiểm tra tính năng click tự động. Mỗi khi một phần tử được click, nó sẽ đổi màu và một thông báo sẽ được ghi lại bên dưới.</p>
-        
-        <div class="test-elements">
-            <button class="clickable" id="button1">Nút Bấm #1</button>
-            <div class="clickable" id="div_box">Khu vực (div) #2</div>
-            <p class="clickable" id="paragraph_element">Đoạn văn bản (p) #3. Click vào đây!</p>
-            <a href="#" class="clickable" id="link_4" onclick="event.preventDefault();">Đường link (a) #4</a>
-        </div>
-        
-        <div class="xpath-list">
-            <h2>📋 Full XPath để copy:</h2>
-            <p>1. <strong>Nút Bấm #1:</strong> <code>/html/body/div/div[1]/button</code></p>
-            <p>2. <strong>Khu vực (div) #2:</strong> <code>/html/body/div/div[1]/div</code></p>
-            <p>3. <strong>Đoạn văn bản (p) #3:</strong> <code>/html/body/div/div[1]/p</code></p>
-            <p>4. <strong>Đường link (a) #4:</strong> <code>/html/body/div/div[1]/a</code></p>
-        </div>
+<h2>Append Form Data (No Storage)</h2>
 
-        <div id="logArea" class="log-area">
-            <div class="log-entry">Chờ hành động click...</div>
-        </div>
-    </div>
+<form id="myForm">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form> 
 
-    <script>
-        const clickableElements = document.querySelectorAll('.clickable');
-        const logArea = document.getElementById('logArea');
+<h3>Danh sách đã nhập:</h3>
+<ul id="resultList"></ul>
 
-        clickableElements.forEach(el => {
-            el.addEventListener('click', function(event) {
-                // Đánh dấu phần tử đã được click
-                this.classList.add('clicked');
-                
-                // Ghi log
-                const time = new Date().toLocaleTimeString();
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log-entry';
-                logEntry.innerHTML = `<span class="log-time">[${time}]</span>: <span class="log-text">Đã click vào phần tử: "${this.textContent}"</span>`;
-                
-                // Thêm log mới lên đầu
-                if (logArea.firstChild.textContent === 'Chờ hành động click...') {
-                    logArea.innerHTML = '';
-                }
-                logArea.prepend(logEntry);
+<script>
+let counter = 1; // Đếm số thứ tự
 
-                // Sau 2 giây, xóa trạng thái "clicked" để có thể test lại
-                setTimeout(() => {
-                    this.classList.remove('clicked');
-                }, 2000);
-            });
-        });
-    </script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // Ngăn reload
+
+  const fname = document.getElementById("fname").value.trim();
+  const lname = document.getElementById("lname").value.trim();
+
+  if (fname && lname) {
+    const li = document.createElement("li");
+    li.textContent = `${counter++}. ${fname} ${lname}`;
+    document.getElementById("resultList").appendChild(li);
+  }
+
+  this.reset();
+});
+</script>
 
 </body>
-</html> 
+</html>
